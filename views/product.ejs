@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title><%= title %></title>
-      </head>
-<body>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
     <%- include layout %>
-    <div class="class container"><h2>All Product</h2>
-        <a href="products/add">Add Product</a></div>
-    
-</body>
+    <div class="container">
+      <div class="py-5">
+        <h2>All Product</h2>
+      </div>
+      <a href="products/add" class="btn btn-primary">Add Product</a>
+      <hr />
+      <div class="mx-auto">
+        <% Object.values(products).forEach(function(product){ %>
+        <h2>Name : <%= product.name %></h2>
+        <p><%= product.description %></p>
+        <p>amount : <%= product.amount %> ea.</p>
+        <hr />
+        <% }) %>
+      </div>
+    </div>
+  </body>
 </html>
